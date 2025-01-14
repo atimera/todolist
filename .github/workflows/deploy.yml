@@ -41,11 +41,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           npx ng deploy --repo=https://atimera:${{ secrets.PAT }}@github.com/atimera/todolist.git --base-href=https://atimera.github.io/todolist/
-
-      # 5. Déployez sur GitHub Pages
-      # - name: Deploy to GitHub Pages
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     branch: gh-pages # Branche pour GitHub Pages
-      #     folder: dist/todolist # Chemin vers le dossier de build
-      #     token: ${{ secrets.PAT }}
