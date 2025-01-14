@@ -37,3 +37,4 @@ jobs:
         with:
           branch: gh-pages # Branche pour GitHub Pages
           folder: dist/todolist # Chemin vers le dossier de build
+          token: ${{ secrets.GITHUB_TOKEN }}
