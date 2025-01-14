@@ -27,14 +27,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # 4. Construisez l'application Angular
-      - name: Build Angular app
-        run: npm run build -- --configuration production
+      # 4. Exécutez `ng deploy` pour déployer l'application
+      - name: Deploy Angular App
+        run: npx ng deploy --base-href=https://atimera.github.io/todolist/
+
+      # 5. (Optionnel) Ajoutez des étapes pour nettoyer ou vérifier le déploiement
 
       # 5. Déployez sur GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: gh-pages # Branche pour GitHub Pages
-          folder: dist/todolist # Chemin vers le dossier de build
-          token: ${{ secrets.PAT }}
+      # - name: Deploy to GitHub Pages
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     branch: gh-pages # Branche pour GitHub Pages
+      #     folder: dist/todolist # Chemin vers le dossier de build
+      #     token: ${{ secrets.PAT }}
