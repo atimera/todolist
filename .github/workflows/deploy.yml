@@ -30,7 +30,7 @@ jobs:
       # 3. Configurez l'identité Git
       - name: Set Git identity
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
@@ -38,9 +38,9 @@ jobs:
       # 4. Exécutez `ng deploy` pour déployer l'application
       - name: Deploy Angular App
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
         run: |
-          npx ng deploy --base-href=https://atimera.github.io/todolist/
+          npx ng deploy --repo=https://atimera:${{ secrets.PAT }}@github.com/atimera/todolist.git --base-href=https://atimera.github.io/todolist/
 
       # 5. Déployez sur GitHub Pages
       # - name: Deploy to GitHub Pages
