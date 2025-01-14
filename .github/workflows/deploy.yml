@@ -35,7 +35,10 @@ jobs:
 
       # 4. Exécutez `ng deploy` pour déployer l'application
       - name: Deploy Angular App
-        run: npx ng deploy --base-href=https://atimera.github.io/todolist/
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx ng deploy --base-href=https://atimera.github.io/todolist/
 
       # 5. (Optionnel) Ajoutez des étapes pour nettoyer ou vérifier le déploiement
 
