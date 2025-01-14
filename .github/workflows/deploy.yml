@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Branche principale à surveiller (ajustez selon votre projet)
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Vérifiez le code source
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      # 2. Configurez Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.12.2 # Version de Node.js, ajustez si nécessaire
+
+      # 3. Installez les dépendances
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Construisez l'application Angular
+      - name: Build Angular app
+        run: npm run build -- --configuration production
+
+      # 5. Déployez sur GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # Branche pour GitHub Pages
+          folder: dist/todolist # Chemin vers le dossier de build
