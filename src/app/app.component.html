@@ -1,7 +1,13 @@
-<h1>Todolist</h1>
-
-<div class="card flex justify-center">
-  <p-button label="Check" />
+<div class="card">
+  <p-tabs value="/dashboard">
+    <p-tablist>
+      @for(tab of tabs; track tab.route){
+        <p-tab [value]="tab.route" [routerLink]="tab.route">
+          <i [class]="tab.icon"></i>
+          <span>{{ tab.label }}</span>
+        </p-tab>
+      }
+    </p-tablist>
+  </p-tabs>
 </div>
-
-<router-outlet></router-outlet>
+<!--<router-outlet></router-outlet>-->
