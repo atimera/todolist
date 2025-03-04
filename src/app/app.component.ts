@@ -5,23 +5,16 @@ import {Tab, TabList, Tabs, TabsModule} from 'primeng/tabs';
 import {TableModule} from 'primeng/table';
 import {CommonModule} from '@angular/common';
 import {PrimeNG} from 'primeng/config';
+import {HeaderComponent} from './components/header/header.component';
+import {FooterComponent} from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [TabsModule, RouterModule, CommonModule],
+  imports: [TabsModule, RouterModule, CommonModule, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'todolist';
-  tabs!: { route: string, icon: string, label: string }[];
 
-  ngOnInit() {
-    this.tabs = [
-      {route: "home", icon: "pi pi-home", label: "Accueil"},
-      {route: "tutos", icon: "pi pi-graduation-cap", label: "Tutoriels"},
-      {route: "questions", icon: "pi pi-question", label: "QCM"},
-      {route: "blog", icon: "pi pi-file-edit", label: "Blog"},
-    ]
-  }
 }
