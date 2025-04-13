@@ -1,1 +1,5 @@
-<p>Home works !</p>
+<form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+  <p-datepicker
+    formControlName="dateOfBirth" [showIcon]="true"
+    inputId="buttondisplay" [showOnFocus]="false"></p-datepicker>
+</form>
